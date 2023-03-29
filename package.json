@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+        "ejs": "^3.1.9",
+        "express": "^4.17.1",
+        "mongoose": "",
+        "nodemon": "^2.0.21",
+        "socket.io": "^4.6.1"
+    }
+}

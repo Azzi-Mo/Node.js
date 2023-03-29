@@ -1,0 +1,10 @@
+<h1>Books</h1>
+<ul>
+  <% books.forEach(book => { %>
+    <li>
+      <a href="/books/<%= book.title.toLowerCase().replace(/ /g, '-') %>">
+        <%= book.title %> by <%= book.author %>
+      </a>
+    </li>
+  <% }) %>
+</ul>
