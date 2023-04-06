@@ -6,8 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
 
-const CHAT_ENGINE_PROJECT_ID = "";
-const CHAT_ENGINE_PRIVATE_KEY = "";
+const CHAT_ENGINE_PROJECT_ID = "e689cc7a-275e-410a-a1d5-b66d70748fdf";
+const CHAT_ENGINE_PRIVATE_KEY = "5834ff9b-0f95-497f-a7ef-caa4f62b77b3";
 
 app.post("/signup", async (req, res) => {
   const { username, secret, email, first_name, last_name } = req.body;
@@ -15,7 +15,7 @@ app.post("/signup", async (req, res) => {
   // Store a user-copy on Chat Engine!
   // Docs at rest.chatengine.io
   try {
-    const r = await axios.post(
+    const r = await axios.put(
       "https://api.chatengine.io/users/",
       { username, secret, email, first_name, last_name },
       { headers: { "Private-Key": CHAT_ENGINE_PRIVATE_KEY } }
@@ -32,7 +32,7 @@ app.post("/login", async (req, res) => {
   // Fetch this user from Chat Engine in this project!
   // Docs at rest.chatengine.io
   try {
-    const r = await axios.get("https://api.chatengine.io/users/me/", {
+    const r = await axios.get("https://api.chatengine.io/users/", {
       headers: {
         "Project-ID": CHAT_ENGINE_PROJECT_ID,
         "User-Name": username,
